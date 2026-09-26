@@ -1,0 +1,27 @@
+# Compiled programs
+*.exe
+*.out
+*.app
+program
+
+# Object files
+*.o
+*.obj
+
+# Debug files
+*.pdb
+*.ilk
+*.dSYM/
+
+# Build folders
+build/
+bin/
+obj/
+
+# VS Code settings (personal)
+.vscode/
+
+# OS junk files
+.DS_Store
+Thumbs.db
+desktop.ini
