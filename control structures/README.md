@@ -26,20 +26,31 @@ int main() {
 | `<< endl` | Ends the line and moves the cursor to the next line. |
 | `return 0;` | Ends `main` and tells the operating system the program ran successfully. |
 
-## How to Run
+## How to Run on Windows
 
-Compile:
+Build once from PowerShell, Command Prompt, or Git Bash:
 
-```bash
-g++ hello.cpp -o hello
+```text
+cpp-build hello.cpp
 ```
 
-Run:
+Run it by name in any of those terminals:
 
-```bash
-./hello        # Linux / macOS
-hello.exe      # Windows
+```text
+hello
 ```
+
+The build command puts `hello.exe` in `%USERPROFILE%\.local\bin`, which is
+already on this computer's PATH. It does not put an executable next to the
+source file. Run `cpp-build hello.cpp` again after changing the C++ code.
+In VS Code, `Ctrl+Shift+B` builds the currently open C++ file.
+
+`g++ hello.cpp -o hello` writes `hello.exe` into this folder. The command
+`./hello` runs that local file. Use `cpp-build hello.cpp` and then `hello`
+to keep the source folder free of executables.
+
+For files with the same name in different folders, give each program a unique
+name: `cpp-build main.cpp loops` builds a command named `loops`.
 
 ## Output
 

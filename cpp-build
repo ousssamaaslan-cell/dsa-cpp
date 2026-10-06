@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+if [[ $# -lt 1 || $# -gt 2 ]]; then
+    echo 'Usage: cpp-build source.cpp [program-name]' >&2
+    exit 2
+fi
+
+source_file=$1
+if [[ ! -f "$source_file" ]]; then
+    echo "Source file not found: $source_file" >&2
+    exit 2
+fi
+
+program=${source_file##*/}
+program=${program%.cpp}
+if [[ $# -eq 2 ]]; then
+    program=$2
+fi
+
+output_dir="$(cygpath -u "$USERPROFILE")/.local/bin"
+mkdir -p "$output_dir" || exit 1
+
+g++ "$source_file" -o "$output_dir/$program.exe" || exit 1
+echo "Built $output_dir/$program.exe"
